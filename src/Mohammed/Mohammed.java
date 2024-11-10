@@ -48,8 +48,8 @@ public class Mohammed{
         String rec = "rec@snnu.edu.com";
         String[] messages = new String[]{"111", "12345678", "01234567890123456789", "7777777777", "123", "1123", "123", "123", "123", "123"};
         String[] users = new String[]{"send@snnu.edu.com", "send1@snnu.edu.com", "send2@snnu.edu.com", "send3@snnu.edu.com", "send4@snnu.edu.com", "send5@snnu.edu.com", "send6@snnu.edu.com", "send7@snnu.edu.com", "send8@snnu.edu.com", "send9@snnu.edu.com"};
-        String dir = "E:/java program/CLSC-Lxx/database/Mohammed/";
-        String pairingParametersFileName = "E:/java program/CLSC-Lxx/database/Mohammed/a.properties";
+        String dir = "E:/java program/CLSC-Lxx/Compare-Schema/database/Mohammed/";
+        String pairingParametersFileName = "E:/java program/CLSC-Lxx/Compare-Schema/database/Mohammed/a.properties";
         String publicParameterFileName = dir + "pub.properties";
         String mskFileName = dir + "msk.properties";
         String pkFileName = dir + "pk.properties";
@@ -84,7 +84,7 @@ public class Mohammed{
 //            unsignCrypt(pairingParametersFileName, publicParameterFileName, skFileName, pkFileName, users, signCryptFileName, 2);
             long end = System.currentTimeMillis();
             System.out.print("运行时间为");
-            System.out.println((end - start)*10);
+            System.out.println((end - start));
 
         }
     }

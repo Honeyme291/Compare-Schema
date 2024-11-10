@@ -52,21 +52,22 @@ public class Ours {
         String rec = "rec@snnu.edu.com";
         String[] messages = new String[]{"111", "12345678", "01234567890123456789", "7777777777", "123", "1123", "123", "123", "123", "123"};
         String[] users = new String[]{"send@snnu.edu.com", "send1@snnu.edu.com", "send2@snnu.edu.com", "send3@snnu.edu.com", "send4@snnu.edu.com", "send5@snnu.edu.com", "send6@snnu.edu.com", "send7@snnu.edu.com", "send8@snnu.edu.com", "send9@snnu.edu.com"};
-        String dir = "E:/java program/CLSC-Lxx/database/Ours/";
-        String pairingParametersFileName = "E:/java program/CLSC-Lxx/database/Ours/a.properties";
+        String dir = "E:/java program/CLSC-Lxx/Compare-Schema/database/Ours/";
+        String pairingParametersFileName = "E:/java program/CLSC-Lxx/Compare-Schema/database/Ours/a.properties";
         String publicParameterFileName = dir + "pub.properties";
         String mskFileName = dir + "msk.properties";
         String pkFileName = dir + "pk.properties";
         String skFileName = dir + "sk.properties";
         String signCryptFileName = dir + "signCrypt.properties";
         for (int j = 0; j < 10; j++) {
-            long start = System.currentTimeMillis();
+
             setup(pairingParametersFileName, publicParameterFileName, mskFileName);
+
             for (int i = 0; i < users.length; i++) {
                 KeyGen(pairingParametersFileName, publicParameterFileName, mskFileName, users[i], pkFileName, skFileName);
             }
             KeyGen(pairingParametersFileName, publicParameterFileName, mskFileName, rec, pkFileName, skFileName);
-
+            long start = System.currentTimeMillis();
             for(int i=0;i<users.length;i++){
                 signCrypt(pairingParametersFileName, publicParameterFileName, skFileName, pkFileName, messages[i], users[i], signCryptFileName,rec);
             }
@@ -76,12 +77,9 @@ public class Ours {
             for(int i=0;i<users.length;i++){
                 UnSignCyption(pairingParametersFileName,publicParameterFileName,skFileName,signCryptFileName,users[i],rec);
             }
-
-//            unsignCrypt(pairingParametersFileName, publicParameterFileName, skFileName, pkFileName, users, signCryptFileName, 2);
             long end = System.currentTimeMillis();
             System.out.print("运行时间为");
             System.out.println(end - start);
-
         }
     }
 
